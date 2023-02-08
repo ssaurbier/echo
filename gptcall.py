@@ -17,11 +17,11 @@ openai.error.InvalidRequestError: This model's maximum context length is 4097 to
 if len([*articlebody]) > 3559:
     articlebody = ''.join([*articlebody][:3558])
 
-
+query = '"What are the political biases in the following article?'
 
 response = openai.Completion.create(
 engine="text-davinci-002",
-prompt=f"What are the political biases in the following article? {articlebody}",
+prompt=f"{query} {articlebody}",
 temperature=0.7,
 max_tokens=709,
 top_p=1,
